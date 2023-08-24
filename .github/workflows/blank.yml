@@ -1,42 +1,55 @@
-echo "# Anukalp1" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/anukalpsanjetiya/Anukalp1.git
-git push -u origin main# This is a basic workflow to help you get started with Actions
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Billing Software</title>
+    <style>
+        /* CSS styles for the bill */
+        .bill {
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 300px;
+            margin: 0 auto;
+        }
 
-name: CI
+        .bill h2 {
+            text-align: center;
+        }
 
-# Controls when the workflow will run
-on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+        .bill p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="customer-name">Customer Name:</label>
+        <input type="text" id="customer-name"><br><br>
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+        <label for="item-name">Item Name:</label>
+        <input type="text" id="item-name"><br><br>
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity"><br><br>
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+        <label for="price">Price:</label>
+        <input type="number" id="price"><br><br>
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+        <button type="button" onclick="generateBill()">Generate Bill</button>
+    </form>
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+    <div id="bill-container"></div>
+
+    <script>
+        function generateBill() {
+            // Get input values
+            var customerName = document.getElementById("customer-name").value;
+            var itemName = document.getElementById("item-name").value;
+            var quantity = document.getElementById("quantity").value;
+            var price = document.getElementById("price").value;
+
+            // Calculate total amount
+            var totalAmount = quantity * price;
+
+            // Generate bill HTML
+            var billHTML = '<div class="bill">';
+            billHTML += '<h2>Bill</<!DOCTYPE html>
